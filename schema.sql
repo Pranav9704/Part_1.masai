@@ -1,17 +1,17 @@
-CODEJUDGE DBMS - SQL DDL SCHEMA (CLEAN RELATIONAL DESIGN)
+--CODEJUDGE DBMS - SQL DDL SCHEMA (CLEAN RELATIONAL DESIGN)
 
-========================================================
-ASSUMPTIONS
-========================================================
-1. All IDs (student_id, course_id, etc.) are INTEGER AUTO-INCREMENT.
-2. Codes (batch_code, course_code, problem_code) are UNIQUE business identifiers.
-3. Derived fields (like submission score) are stored for performance.
-4. Status fields are controlled using CHECK constraints.
-5. Raw import table is kept separate as staging (no strict FK).
+--========================================================
+--ASSUMPTIONS
+--========================================================
+--1. All IDs (student_id, course_id, etc.) are INTEGER AUTO-INCREMENT.
+--2. Codes (batch_code, course_code, problem_code) are UNIQUE business identifiers.
+--3. Derived fields (like submission score) are stored for performance.
+--4. Status fields are controlled using CHECK constraints.
+--5. Raw import table is kept separate as staging (no strict FK).
 
-========================================================
-1. BATCHES TABLE
-========================================================
+--========================================================
+--1. BATCHES TABLE
+--========================================================
 CREATE TABLE batches (
     batch_id INT PRIMARY KEY AUTO_INCREMENT,
     batch_code VARCHAR(20) UNIQUE NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE batches (
 
 --------------------------------------------------------
 
-2. COURSES TABLE
+--2. COURSES TABLE
 --------------------------------------------------------
 CREATE TABLE courses (
     course_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -40,7 +40,7 @@ CREATE TABLE courses (
 
 --------------------------------------------------------
 
-3. STUDENTS TABLE
+--3. STUDENTS TABLE
 --------------------------------------------------------
 CREATE TABLE students (
     student_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -60,7 +60,7 @@ CREATE TABLE students (
 
 --------------------------------------------------------
 
-4. ENROLLMENTS TABLE
+--4. ENROLLMENTS TABLE
 --------------------------------------------------------
 CREATE TABLE enrollments (
     enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -80,7 +80,7 @@ CREATE TABLE enrollments (
 
 --------------------------------------------------------
 
-5. PROBLEMS TABLE
+--5. PROBLEMS TABLE
 --------------------------------------------------------
 CREATE TABLE problems (
     problem_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -100,7 +100,7 @@ CREATE TABLE problems (
 
 --------------------------------------------------------
 
-6. TEST_CASES TABLE
+--6. TEST_CASES TABLE
 --------------------------------------------------------
 CREATE TABLE test_cases (
     test_case_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -121,7 +121,7 @@ CREATE TABLE test_cases (
 
 --------------------------------------------------------
 
-7. CONTESTS TABLE
+--7. CONTESTS TABLE
 --------------------------------------------------------
 CREATE TABLE contests (
     contest_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -138,7 +138,7 @@ CREATE TABLE contests (
 
 --------------------------------------------------------
 
-8. CONTEST_PROBLEMS TABLE
+--8. CONTEST_PROBLEMS TABLE
 --------------------------------------------------------
 CREATE TABLE contest_problems (
     contest_id INT NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE contest_problems (
 
 --------------------------------------------------------
 
-9. SUBMISSIONS TABLE
+--9. SUBMISSIONS TABLE
 --------------------------------------------------------
 CREATE TABLE submissions (
     submission_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -177,7 +177,7 @@ CREATE TABLE submissions (
 
 --------------------------------------------------------
 
-10. TEST_RESULTS TABLE
+--10. TEST_RESULTS TABLE
 --------------------------------------------------------
 CREATE TABLE test_results (
     result_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -200,7 +200,7 @@ CREATE TABLE test_results (
 
 --------------------------------------------------------
 
-11. SESSIONS TABLE
+--11. SESSIONS TABLE
 --------------------------------------------------------
 CREATE TABLE sessions (
     session_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -214,7 +214,7 @@ CREATE TABLE sessions (
 
 --------------------------------------------------------
 
-12. ATTENDANCE TABLE
+--12. ATTENDANCE TABLE
 --------------------------------------------------------
 CREATE TABLE attendance (
     attendance_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -233,7 +233,7 @@ CREATE TABLE attendance (
 
 --------------------------------------------------------
 
-13. REGRAGE_REQUESTS TABLE
+--13. REGRAGE_REQUESTS TABLE
 --------------------------------------------------------
 CREATE TABLE regrade_requests (
     request_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -252,7 +252,7 @@ CREATE TABLE regrade_requests (
 
 --------------------------------------------------------
 
-14. PLAGIARISM_FLAGS TABLE
+--14. PLAGIARISM_FLAGS TABLE
 --------------------------------------------------------
 CREATE TABLE plagiarism_flags (
     flag_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -271,7 +271,7 @@ CREATE TABLE plagiarism_flags (
 
 --------------------------------------------------------
 
-15. RAW STUDENT IMPORT (STAGING TABLE)
+--15. RAW STUDENT IMPORT (STAGING TABLE)
 --------------------------------------------------------
 CREATE TABLE raw_student_import (
     raw_row_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -284,6 +284,6 @@ CREATE TABLE raw_student_import (
     import_notes TEXT
 );
 
-========================================================
-END OF SCHEMA DESIGN
-========================================================
+--========================================================
+--END OF SCHEMA DESIGN
+--========================================================
